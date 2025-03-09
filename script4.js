@@ -15,3 +15,4 @@ const b = data.obj.y;
 console.log(a + b); // 15
 
 
+
