@@ -12,11 +12,22 @@ else console.log(data);
 fs.appendFile('priya.txt',' thank you so much i love you to akash 74438\n',function(err){
   if(err)console.log(err);
   else console.log("Data appended successfully...");
-})
+});
 
 
 
 fs.rename("priya.txt","priyaMylove.txt",function(err){
   if(err)console.log(err);
   else console.log("Rename Successfully...");
+});
+
+fs.unlink("abcd.txt",function(err){
+  if(err)console.log(err);
+  else console.log("abcd.txt file successfully deleted...");
+});
+
+
+fs.mkdir("lolo",function(err){
+  if(err)console.log(err);
+  else console.log("Folder created Successfully...");
 })
