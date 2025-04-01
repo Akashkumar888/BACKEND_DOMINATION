@@ -12,6 +12,20 @@ const app=express();
 // get ek method hai 
 
 
+
+// middleware kitne bhi bana sakte ho 
+// req ko aage bhejne ke liye next() ka use krte hai 
+app.use(function(req,res,next){
+  console.log("Hii hello Everone...");
+  next();
+})
+
+
+app.use(function(req,res,next){
+  console.log("Kaise ho app log...");
+  next();
+})
+
 // routes , request handler or middleware function hai 
 app.get("/",function(req,res){
   res.send("Hello Priya How are You ?");
