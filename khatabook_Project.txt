@@ -1,0 +1,10 @@
+
+khatabook
+har roz ki ek file create kar sakte ho , us file ka naam date se hoga like that 10-5-2025.txt 
+
+aap main screen pr / route pr dekh payenge sari files aur sare din hisaab 
+
+click krne pr us din ka hisaab khul jayega 
+chahe to edit kare fir se save kare 
+hisaab ko delete kiya ja sakta hai 
+
