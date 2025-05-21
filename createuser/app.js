@@ -56,6 +56,40 @@ app.get('/readall',async function(req,res,next) {
 })
 
 
+app.get('/update',async function(req,res,next){
+  try{
+    const updateuser=await userModel.findOneAndUpdate(
+      {name:'ankit'} ,
+      {
+  $set: {
+    username: 'Nitish Kumar',
+    email: 'nitish2201078cs@iiitbh.ac.in'
+    }
+    },
+    {new:true});
+    console.log("Update Successfully...");
+    res.send(updateuser);
+  }
+  catch(err){
+    console.log("update failed...");
+    res.status(500).send(err);
+  }
+});
+
+
+
+app.get('/delete',async function(req,res,next){
+  try{
+    const deleteuser=await userModel.findOneAndDelete({name:'ankit'});
+
+  console.log("delete Sucessfully...");
+  res.send(deleteuser);
+  }
+  catch(err){
+    console.log("deletion failed...");
+    res.status(500).send(err);
+  }
+});
 
 
 
