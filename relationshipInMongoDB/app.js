@@ -110,13 +110,15 @@ app.post('/create',async function(req,res){
   }
 })
 
+
+
 app.post('/create/post/:username',async function(req,res){
   try{
     const user=await userModel.findOne({username: req.params.username});
     if (!user) return res.status(404).send('User not found.');
 
    const createdPost=await postModel.create({
-      content:'Hello dosto yah mai hu aur ye mera dost chiku hai...',
+      content:'Hello dosto yah mai hu aur ye meri dost preeti hai...',
       user:user._id
     });
     user.posts.push(createdPost._id);
@@ -130,6 +132,8 @@ app.post('/create/post/:username',async function(req,res){
     console.log('find user failed...');
   }
 })
+
+
 
 
 app.get('/posts',async function(req,res){
@@ -146,6 +150,8 @@ catch(err){
 });
 
 
+
+
 app.get('/users',async function(req,res){
 
 try{
@@ -158,6 +164,7 @@ catch(err){
   console.log("finding users is failed...");
 }
 });
+
 
 
 
