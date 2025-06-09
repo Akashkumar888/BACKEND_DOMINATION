@@ -1,0 +1,27 @@
+{
+  "name": "production-level-setup",
+  "version": "1.0.0",
+  "description": "Express app with Tailwind CSS and EJS templating",
+  "main": "app.js",
+  "scripts": {
+    "dev": "concurrently \"npm:watch:css\" \"nodemon app.js\"",
+    "watch:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch",
+    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
+    "start": "node app.js"
+  },
+  "author": "Akash Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "config": "^4.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^4.1.8"
+  }
+}
