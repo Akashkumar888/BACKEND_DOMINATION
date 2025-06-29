@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+<h2 class="text-xl font-semibold mb-4">Login</h2>
+<form action="/auth/login" method="POST" class="space-y-4 max-w-md">
+  <input type="email" name="email" placeholder="Email" required class="w-full p-2 border rounded" />
+  <input type="password" name="password" placeholder="Password" required class="w-full p-2 border rounded" />
+  <button class="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+</form>
+
+<p class="mt-4">or login with:</p>
+<a href="/auth/google" class="mt-2 inline-block bg-red-500 text-white px-4 py-2 rounded">Google</a>
+<%- include('../partials/footer') %>
