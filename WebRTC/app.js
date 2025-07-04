@@ -23,8 +23,13 @@ app.use(express.static(path.join(__dirname,'public')));
 dbConnect();
 
 
-io.on('connection',(Socket)=>{
-  console.log('IO Connection ID: ',`${Socket.id}`);
+
+io.on('connection',(socket)=>{
+  
+socket.on('signalingMessage',function(message){
+socket.broadcast.emit('signalingMessage',message);
+
+})
 
 })
 
