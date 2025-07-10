@@ -15,14 +15,13 @@ router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
     console.log('✅ Login Success:', req.user);
-    res.redirect('/');
+    // res.redirect('/');
+    res.send(req.user);
   }
 );
 
 
 
-
-
-
-
 module.exports=router;
+
+
