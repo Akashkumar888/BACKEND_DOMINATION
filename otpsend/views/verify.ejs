@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Verify OTP for <%= mobile %></h2>
+  <% if (error) { %><p style="color:red"><%= error %></p><% } %>
+  <form method="POST" action="/verify-otp">
+    <input type="hidden" name="mobile" value="<%= mobile %>" />
+    <input name="otp" placeholder="Enter OTP" required />
+    <button type="submit">Verify OTP</button>
+  </form>
+</body>
+</html>
