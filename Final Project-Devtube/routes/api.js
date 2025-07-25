@@ -125,11 +125,29 @@ router.get('/videos', getPublicVideos)
 router.get('/hashtag/:tag/videos', getTagVideos)
 
 
+
+
 //login with google
-router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
+router.get('/google',
+  passport.authenticate("google",{
+  scope:['profile','email']
+}),(req,res)=>{}
+);
+
+
+
+
 
 //google login callback
-router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), (req, res) => res.redirect("/"))
+router.get("/auth/google/callback", 
+    passport.authenticate("google", 
+    { failureRedirect: "/" }), 
+    (req, res) => res.redirect("/"))
+
+
+
+
+
 
 //logout
 router.get('/logout', (req, res) => {
@@ -142,4 +160,8 @@ router.get('/logout', (req, res) => {
     })
 })
 
+
+
 module.exports = router
+
+

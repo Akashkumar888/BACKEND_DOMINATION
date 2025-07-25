@@ -39,9 +39,10 @@ const Channel = require('@models/Channel') // Import Channel model
 // Middleware setup
 // Set the directory for view templates
 app.set('views', path.join(__dirname, 'views'))
+
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs')
-
 // Serve static files from the 'public' directory
 app.use(express.static('public'))
 // Parse JSON request bodies
@@ -49,12 +50,23 @@ app.use(express.json())
 // Parse URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }))
 // Set up session management with a secret key
-app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }))
+
+app.use(session(
+  { 
+  secret: process.env.EXPRESS_SECRET || 'secret', 
+  resave: false, 
+  saveUninitialized: false 
+}
+));
+
+
 // Initialize Passport for authentication
 app.use(passport.initialize())
+
 // Enable persistent login sessions
 app.use(passport.session())
 // Use custom middleware to check database connection
+
 app.use(checkDBConnection)
 
 // Middleware to attach user data to res.locals for views

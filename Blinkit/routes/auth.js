@@ -6,26 +6,22 @@ const router=express.Router();
 
 
 
-router.get('/google',
-  passport.authenticate("google",{
+router.get('/google',passport.authenticate("google",{
   scope:['profile','email']
 }),(req,res)=>{}
 );
 
 
-
-// login 
 router.get(
   '/google/callback',
   passport.authenticate('google', {
-    successRedirect: '/profile',
+    successRedirect: '/products',
     failureRedirect: '/',
   })
 );
 
 
 
-//logout 
 router.post('/logout',(req,res,next)=>{
  req.logOut(function(err){
   if(err)return next(err);
@@ -34,6 +30,7 @@ router.post('/logout',(req,res,next)=>{
 });
 
 
-
-
 module.exports=router;
+
+
+

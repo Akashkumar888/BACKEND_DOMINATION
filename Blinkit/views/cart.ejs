@@ -21,8 +21,12 @@
                 </div>
                 <% cart.forEach(elem=> { %>
                     <div class="flex items-center mt-4">
-                        <img src="data:image/jpg;base64, <%= elem.image.toString('base64') %>" alt="<%= elem.name %>"
-                            class="w-16 h-16 rounded">
+                        <!-- <img src="data:image/jpg;base64, <%= elem.image.toString('base64') %>" alt="<%= elem.name %>"
+                        class="w-16 h-16 rounded"> -->
+                        
+                        <img class="w-16 h-16 rounded" src="data:<%= elem.imageType %>;base64,<%= elem.image.toString('base64') %>" alt="<%= elem.name %>">
+
+                        
                         <div class="ml-4">
                             <p>
                                 <%= elem.name %>
@@ -184,12 +188,14 @@
                 </div>
             </div>
         </div>
+
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
+
             document.querySelector('.paybtn').onclick = function (e) {
                 axios.post('/payment/create/orderId')
                     .then(function (response) {
@@ -197,7 +203,7 @@
                             "key": "rzp_test_cAa3gCF0eP8i4R", // Enter the Key ID generated from the Dashboard
                             "amount": response.data.amount, // Amount in currency subunits. Default currency is INR.
                             "currency": response.data.currency,
-                            "name": "BlinkIt",
+                            "name": "Blinkit",
                             "description": "Test Transaction",
                             "image": "https://example.com/your_logo",
                             "order_id": response.data.id,
@@ -249,3 +255,5 @@
     </body>
 
     <%- include('./partials/footer'); %>
+
+
